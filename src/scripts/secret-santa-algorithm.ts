@@ -100,6 +100,6 @@ export function generateAssignments(
  * Generate a unique ID for participants
  */
 export function generateId(): string {
-  return `participant-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  return `participant-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
 }
 

@@ -110,11 +110,12 @@ All commands are run from the root of the project, from a terminal:
 - [x] LocalStorage persistence
 - [x] Responsive card grid layout
 
-### 🚧 Next Steps (Phase 1.4)
-- [ ] Enhanced Credits section with avatars
-- [ ] FAQ section
-- [ ] Footer with privacy notice
-- [ ] Additional polish and animations
+### ✅ Phase 1.4 Complete (Days 13-17)
+- [x] Enhanced Credits section with participant cards
+- [x] FAQ section with collapsible accordion
+- [x] Footer with privacy notice and attribution
+- [x] Visual polish and final touches
+- [x] Code review and simplification (codebase is clean and straightforward)
 
 ## 👀 Want to learn more?
 

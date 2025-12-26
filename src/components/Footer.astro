@@ -1,0 +1,111 @@
+---
+// Footer with privacy notice and attribution
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Privacy First</h3>
+        <p>
+          All data stays in your browser. Nothing is sent to any server. Your Secret Santa
+          assignments are completely private and local to your device.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Inspired By</h3>
+        <p>
+          Created with inspiration from
+          <a
+            href="https://www.youtube.com/watch?v=4pG8_bWpmaE"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Tom 7's Secretest Santa 2025</a
+          >
+        </p>
+        <p>
+          Full cryptographic implementation:
+          <a href="http://tom7.org/santa" target="_blank" rel="noopener noreferrer"
+            >tom7.org/santa</a
+          >
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Open Source</h3>
+        <p>
+          This project is open source and available for educational purposes. Feel free to explore,
+          learn, and adapt.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        Made with ❤️ and 🎄 for the holiday season | The Secretest Santa © 2025
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--card-sectionning-background-color);
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+    border-top: 2px solid var(--color-pine-green);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-section h3 {
+    color: var(--color-burgundy);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-section p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    opacity: 0.9;
+  }
+
+  .footer-section a {
+    color: var(--color-pine-green);
+    text-decoration: underline;
+  }
+
+  .footer-section a:hover {
+    color: var(--color-burgundy);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--card-sectionning-background-color);
+  }
+
+  .footer-bottom p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .site-footer {
+      padding: 2rem 0 1rem;
+    }
+  }
+</style>
+

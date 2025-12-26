@@ -4,6 +4,9 @@ import Hero from '../components/Hero.astro';
 import VideoSection from '../components/VideoSection.astro';
 import AlgorithmExplainer from '../components/AlgorithmExplainer.astro';
 import SecretSantaApp from '../components/SecretSantaApp';
+import Credits from '../components/Credits.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
 import SnowEffect from '../components/SnowEffect';
 import DarkModeToggle from '../components/DarkModeToggle';
 import '../styles/secret-santa-app.css';
@@ -29,23 +32,15 @@ import '../styles/secret-santa-app.css';
     <!-- Interactive Secret Santa App -->
     <SecretSantaApp client:visible />
 
+    <!-- FAQ Section -->
+    <FAQ />
+
     <!-- Credits Section -->
-    <section id="credits" class="container" style="padding: 4rem 1rem;">
-      <div class="text-center">
-        <h2>Credits</h2>
-        <p>
-          Inspired by <a
-            href="https://www.youtube.com/watch?v=4pG8_bWpmaE"
-            target="_blank"
-            rel="noopener noreferrer">Tom 7's Secretest Santa 2025</a
-          >
-        </p>
-        <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">
-          All data stays in your browser. Nothing is sent to any server.
-        </p>
-      </div>
-    </section>
+    <Credits />
   </main>
+
+  <!-- Footer -->
+  <Footer />
 
   <!-- Scroll Animations Script -->
   <script>

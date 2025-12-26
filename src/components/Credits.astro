@@ -1,0 +1,262 @@
+---
+// Credits section honoring the creators
+---
+
+<section id="credits" class="credits-section">
+  <div class="container">
+    <h2 class="section-title fade-in">Thank You & Credits</h2>
+    <p class="credits-intro fade-in" style="animation-delay: 0.2s">
+      Created with inspiration from Tom 7's brilliant cryptographic solution to Secret Santa
+    </p>
+
+    <div class="credits-content fade-in" style="animation-delay: 0.3s">
+      <div class="credits-main">
+        <h3>Original Video</h3>
+        <p>
+          This project is inspired by
+          <a
+            href="https://www.youtube.com/watch?v=4pG8_bWpmaE"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Tom 7's Secretest Santa 2025</a
+          >, which demonstrates a mathematically bulletproof Secret Santa system using ElGamal
+          encryption.
+        </p>
+
+        <h3>Key Participants</h3>
+        <p>
+          The video features a group of YouTube math creators who came together to solve this
+          cryptographic challenge:
+        </p>
+
+        <div class="participants-grid">
+          <div class="participant-card">
+            <div class="participant-avatar">🎯</div>
+            <div class="participant-info">
+              <strong>Tom 7</strong>
+              <span class="participant-role">Algorithm Designer</span>
+            </div>
+          </div>
+
+          <div class="participant-card">
+            <div class="participant-avatar">🎄</div>
+            <div class="participant-info">
+              <strong>Katie Steckles</strong>
+              <span class="participant-role">Tradition Founder</span>
+            </div>
+          </div>
+
+          <div class="participant-card">
+            <div class="participant-avatar">📐</div>
+            <div class="participant-info">
+              <strong>Matt Parker</strong>
+              <span class="participant-role">Stand-up Maths - Original Challenge</span>
+            </div>
+          </div>
+
+          <div class="participant-card">
+            <div class="participant-avatar">🪑</div>
+            <div class="participant-info">
+              <strong>Sophie</strong>
+              <span class="participant-role">Chair</span>
+            </div>
+          </div>
+
+          <div class="participant-card">
+            <div class="participant-avatar">🏆</div>
+            <div class="participant-info">
+              <strong>Yan Misali</strong>
+              <span class="participant-role">Best Hack Winner</span>
+            </div>
+          </div>
+
+          <div class="participant-card">
+            <div class="participant-avatar">👨‍💻</div>
+            <div class="participant-info">
+              <strong>Matt Godbolt</strong>
+              <span class="participant-role">Participant</span>
+            </div>
+          </div>
+
+          <div class="participant-card">
+            <div class="participant-avatar">📚</div>
+            <div class="participant-info">
+              <strong>Peter Rowlet</strong>
+              <span class="participant-role">Participant</span>
+            </div>
+          </div>
+
+          <div class="participant-card">
+            <div class="participant-avatar">🔬</div>
+            <div class="participant-info">
+              <strong>Jeff Marshall</strong>
+              <span class="participant-role">Participant</span>
+            </div>
+          </div>
+
+          <div class="participant-card">
+            <div class="participant-avatar">📊</div>
+            <div class="participant-info">
+              <strong>Sam Hartburn</strong>
+              <span class="participant-role">Participant</span>
+            </div>
+          </div>
+
+          <div class="participant-card">
+            <div class="participant-avatar">✨</div>
+            <div class="participant-info">
+              <strong>Matt Scroggs</strong>
+              <span class="participant-role">Participant</span>
+            </div>
+          </div>
+
+          <div class="participant-card">
+            <div class="participant-avatar">🎓</div>
+            <div class="participant-info">
+              <strong>Ben Sparks</strong>
+              <span class="participant-role">Participant</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="credits-note">
+          <h3>About This Simplified Version</h3>
+          <p>
+            This simplified version uses browser-based randomness (<code>crypto.getRandomValues()</code>) instead of full ElGamal encryption. It's perfect for trusted groups like families and small offices, but doesn't have the same cryptographic guarantees as the full system.
+          </p>
+          <p>
+            <strong>Want the full cryptographic version?</strong> Visit
+            <a href="http://tom7.org/santa" target="_blank" rel="noopener noreferrer"
+              >tom7.org/santa</a
+            >
+            for Tom 7's complete implementation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .credits-section {
+    padding: var(--spacing-section) 0;
+    background: var(--card-sectionning-background-color);
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--color-burgundy);
+  }
+
+  .credits-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-pine-green);
+    margin-bottom: 3rem;
+    opacity: 0.9;
+  }
+
+  .credits-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .credits-main h3 {
+    color: var(--color-burgundy);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .credits-main p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .credits-main a {
+    color: var(--color-pine-green);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .credits-main a:hover {
+    color: var(--color-burgundy);
+  }
+
+  .participants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .participant-card {
+    background: var(--card-background-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-smooth);
+  }
+
+  .participant-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .participant-avatar {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .participant-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .participant-info strong {
+    color: var(--color-burgundy);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .participant-role {
+    font-size: 0.85rem;
+    color: var(--color);
+    opacity: 0.7;
+  }
+
+  .credits-note {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: var(--card-background-color);
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--color-gold);
+  }
+
+  .credits-note h3 {
+    margin-top: 0;
+  }
+
+  .credits-note code {
+    background: var(--card-sectionning-background-color);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 768px) {
+    .participants-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .participant-card {
+      padding: 1rem;
+    }
+  }
+</style>
+

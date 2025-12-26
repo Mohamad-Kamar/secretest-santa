@@ -1,0 +1,232 @@
+---
+// FAQ section with collapsible accordion
+---
+
+<section id="faq" class="faq-section">
+  <div class="container">
+    <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+    <p class="faq-intro fade-in" style="animation-delay: 0.2s">
+      Common questions about The Secretest Santa
+    </p>
+
+    <div class="faq-list fade-in" style="animation-delay: 0.3s">
+      <details class="faq-item">
+        <summary>
+          <span class="faq-question">How is this different from other Secret Santa websites?</span>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            This tool is inspired by Tom 7's cryptographic Secret Santa system, which uses advanced
+            mathematics (ElGamal encryption) to ensure that even the organizer can't peek at
+            assignments. While our simplified version uses browser-based randomness instead of full
+            cryptography, it maintains the spirit of privacy-first design.
+          </p>
+          <p>
+            Unlike many Secret Santa tools, everything happens in your browser—no data is sent to
+            any server. It's perfect for in-person group reveals with beautiful card-flip animations.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-question">Is it really secure?</span>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            Our simplified version uses <code>crypto.getRandomValues()</code> for secure
+            randomness, and all processing happens entirely in your browser. No data is sent to
+            any server, so your Secret Santa assignments stay private.
+          </p>
+          <p>
+            <strong>For maximum cryptographic security</strong> (like in Tom 7's video), use the
+            full implementation at <a href="http://tom7.org/santa" target="_blank" rel="noopener noreferrer">tom7.org/santa</a>. That version uses ElGamal encryption and
+            distributed key generation, making it mathematically impossible for anyone to cheat.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-question">What if someone wants to cheat?</span>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            In our simplified version, the trust model assumes participants trust the device and
+            the person running it. Since everything is client-side, someone with access to the
+            browser could potentially view assignments before they're revealed.
+          </p>
+          <p>
+            This is why we designed it for <strong>in-person group reveals</strong>—everyone watches
+            as cards are flipped together, making cheating obvious. In Tom 7's video, Matt Parker
+            tried to "grind" for the smallest number, and Yan Misali found a typo-based "OpSec
+            hack"—the math was perfect, but humans found creative ways to game the system!
+          </p>
+          <p>
+            For untrusted environments, use Tom 7's full cryptographic implementation which prevents
+            any single person from controlling or viewing assignments.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-question">Can I use this for my family/office?</span>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            Absolutely! This tool works great for families, offices, friend groups, or any trusted
+            group of 3-20 people. The in-person reveal experience is perfect for holiday parties and
+            gatherings.
+          </p>
+          <p>
+            The privacy-first design means you don't need to worry about your data being stored on
+            someone else's server. Everything stays in your browser, and you can even clear your
+            data after the reveal.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-question">What about the full cryptographic version?</span>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            The full cryptographic version (as demonstrated in Tom 7's video) uses ElGamal
+            encryption with distributed key generation. It's mathematically bulletproof but more
+            complex to set up, requiring participants to generate and exchange cryptographic keys.
+          </p>
+          <p>
+            You can try it at <a href="http://tom7.org/santa" target="_blank" rel="noopener noreferrer">tom7.org/santa</a>. A Phase 2 version of this site may
+            include a simplified interface for the full cryptographic system in the future.
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: var(--spacing-section) 0;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--color-burgundy);
+  }
+
+  .faq-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-pine-green);
+    margin-bottom: 3rem;
+    opacity: 0.9;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: var(--card-background-color);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+  }
+
+  .faq-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .faq-item summary {
+    padding: 1.5rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: var(--transition-smooth);
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::before {
+    content: '▶';
+    display: inline-block;
+    margin-right: 0.75rem;
+    transition: transform 0.3s ease;
+    color: var(--color-pine-green);
+  }
+
+  .faq-item[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .faq-item summary:hover {
+    background: rgba(1, 121, 111, 0.05);
+  }
+
+  .faq-question {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-burgundy);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.5rem;
+    border-top: 1px solid var(--card-sectionning-background-color);
+    margin-top: 0;
+  }
+
+  .faq-answer p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .faq-answer p:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq-answer code {
+    background: var(--card-sectionning-background-color);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+    font-size: 0.9em;
+  }
+
+  .faq-answer a {
+    color: var(--color-pine-green);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .faq-answer a:hover {
+    color: var(--color-burgundy);
+  }
+
+  .faq-answer strong {
+    color: var(--color-burgundy);
+  }
+
+  @media (max-width: 768px) {
+    .faq-item summary {
+      padding: 1rem;
+    }
+
+    .faq-answer {
+      padding: 0 1rem 1rem;
+    }
+
+    .faq-question {
+      font-size: 1rem;
+    }
+  }
+</style>
+
