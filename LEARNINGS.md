@@ -212,6 +212,98 @@ useEffect(() => { /* ... */ }, []);
 - No shared state between islands by default
 - Use localStorage or URL params for cross-island communication
 
+### Hydration & DOM Manipulation Issues
+
+**The Problem:**
+React hydration requires the server-rendered HTML to match exactly what React expects on the client. External scripts that modify the DOM before React hydrates can cause mismatches.
+
+**Common Pitfalls:**
+
+1. **CSS Classes Added by External Scripts:**
+   ```tsx
+   // ❌ BAD: External script adds 'is-visible' class before React hydrates
+   // Server HTML: <div class="fade-in">
+   // Client HTML: <div class="fade-in is-visible"> (script modified it)
+   // React Error: Hydration mismatch!
+   ```
+
+2. **CSS Hiding Content Until JS Runs:**
+   ```css
+   /* If .fade-in starts as opacity: 0, React components won't be visible */
+   .fade-in {
+     opacity: 0;
+   }
+   .fade-in.is-visible {
+     opacity: 1;
+   }
+   ```
+
+3. **Scroll Animation Scripts:**
+   ```javascript
+   // ❌ BAD: Script modifies React component elements
+   document.querySelectorAll('.fade-in').forEach(el => {
+     el.classList.add('is-visible'); // Breaks React hydration!
+   });
+   ```
+
+**Solutions:**
+
+1. **Exclude React Islands from External Scripts:**
+   ```javascript
+   // ✅ GOOD: Skip React-controlled elements
+   document.querySelectorAll('.fade-in').forEach(el => {
+     if (!el.closest('#app')) { // Skip React island
+       el.classList.add('is-visible');
+     }
+   });
+   ```
+
+2. **Handle Visibility in React Components:**
+   ```tsx
+   // ✅ GOOD: React manages its own visibility
+   useEffect(() => {
+     const appSection = document.getElementById('app');
+     if (appSection) {
+       const fadeInElements = appSection.querySelectorAll('.fade-in');
+       fadeInElements.forEach((el) => {
+         requestAnimationFrame(() => {
+           el.classList.add('is-visible');
+         });
+       });
+     }
+   }, []);
+   ```
+
+3. **Use `client:load` for Critical Components:**
+   ```astro
+   <!-- ✅ GOOD: Hydrates immediately, avoids visibility delays -->
+   <ReactComponent client:load />
+   
+   <!-- ⚠️ CAUTION: May cause blank sections if visibility depends on scripts -->
+   <ReactComponent client:visible />
+   ```
+
+4. **Avoid CSS That Hides Until JS:**
+   ```css
+   /* ⚠️ CAUTION: Can cause blank sections */
+   .fade-in {
+     opacity: 0; /* Hidden until script adds .is-visible */
+   }
+   
+   /* ✅ BETTER: Start visible, fade in if JS available */
+   .fade-in {
+     opacity: 1; /* Visible by default */
+     transition: opacity 0.6s;
+   }
+   ```
+
+**Best Practices:**
+- Keep React islands isolated from external DOM manipulation scripts
+- Use `useEffect` to handle visibility/animations within React components
+- Prefer `client:load` for components that must be visible immediately
+- Test hydration by checking browser console for React warnings
+- Use `requestAnimationFrame` when modifying DOM after React mount
+
 ---
 
 ## tsParticles

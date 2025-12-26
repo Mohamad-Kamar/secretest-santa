@@ -36,6 +36,21 @@ export default function SecretSantaApp() {
     }
   }, []);
 
+  // Make fade-in elements visible after React hydration
+  // This prevents hydration mismatch while preserving animations
+  useEffect(() => {
+    const appSection = document.getElementById('app');
+    if (appSection) {
+      const fadeInElements = appSection.querySelectorAll('.fade-in');
+      fadeInElements.forEach((el) => {
+        // Use requestAnimationFrame to ensure DOM is ready
+        requestAnimationFrame(() => {
+          el.classList.add('is-visible');
+        });
+      });
+    }
+  }, []);
+
   // Save to localStorage whenever data changes
   useEffect(() => {
     if (data.participants.length > 0 || data.eventName) {

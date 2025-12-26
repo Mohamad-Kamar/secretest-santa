@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { Participant, Assignment } from '../scripts/secret-santa-algorithm';
 import ConfettiEffect from './ConfettiEffect';
 
@@ -17,6 +17,7 @@ export default function ResultsDisplay({
 }: ResultsDisplayProps) {
   const [revealed, setRevealed] = useState<Set<string>>(new Set());
   const [confettiKey, setConfettiKey] = useState(0);
+  const resultsDisplayRef = useRef<HTMLDivElement>(null);
 
   const getParticipantName = (id: string) => {
     return participants.find((p) => p.id === id)?.name || 'Unknown';
@@ -70,8 +71,34 @@ export default function ResultsDisplay({
   const allRevealed = revealed.size === participants.length;
   const revealedCount = revealed.size;
 
+  // Make fade-in elements visible immediately on mount
+  useEffect(() => {
+    if (resultsDisplayRef.current) {
+      const element = resultsDisplayRef.current;
+      // Add is-visible to the results-display element itself (it has fade-in class)
+      requestAnimationFrame(() => {
+        if (element.classList.contains('fade-in') && !element.classList.contains('is-visible')) {
+          element.classList.add('is-visible');
+        }
+      });
+    }
+  }, []); // Run once on mount
+
+  // Handle dynamically added fade-in elements (like completion message)
+  useEffect(() => {
+    if (resultsDisplayRef.current) {
+      const element = resultsDisplayRef.current;
+      const fadeInElements = element.querySelectorAll('.fade-in:not(.is-visible)');
+      fadeInElements.forEach((el) => {
+        requestAnimationFrame(() => {
+          el.classList.add('is-visible');
+        });
+      });
+    }
+  }, [revealed.size, participants.length]); // Re-run when completion message appears
+
   return (
-    <div className="results-display fade-in">
+    <div ref={resultsDisplayRef} className="results-display fade-in">
       <ConfettiEffect trigger={confettiKey} />
 
       <div className="results-header">

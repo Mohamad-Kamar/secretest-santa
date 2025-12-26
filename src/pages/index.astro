@@ -33,7 +33,7 @@ import '../styles/secret-santa-app.css';
     <AlgorithmExplainer />
 
     <!-- Interactive Secret Santa App -->
-    <SecretSantaApp client:visible />
+    <SecretSantaApp client:load />
 
     <!-- FAQ Section -->
     <FAQ />
@@ -70,9 +70,14 @@ import '../styles/secret-santa-app.css';
           });
         }, observerOptions);
 
-        // Observe all elements with fade-in class
+        // Observe all elements with fade-in class, except those inside #app (React component)
         const elementsToAnimate = document.querySelectorAll('.fade-in');
-        elementsToAnimate.forEach((el) => observer.observe(el));
+        elementsToAnimate.forEach((el) => {
+          // Skip elements that are inside the React app section to avoid hydration mismatch
+          if (!el.closest('#app')) {
+            observer.observe(el);
+          }
+        });
       }
 
       // Wait for DOM to be ready
