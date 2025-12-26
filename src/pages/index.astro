@@ -3,8 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import VideoSection from '../components/VideoSection.astro';
 import AlgorithmExplainer from '../components/AlgorithmExplainer.astro';
+import SecretSantaApp from '../components/SecretSantaApp';
 import SnowEffect from '../components/SnowEffect';
 import DarkModeToggle from '../components/DarkModeToggle';
+import '../styles/secret-santa-app.css';
 ---
 
 <Layout title="The Secretest Santa - Cryptographic Gift Exchange">
@@ -24,13 +26,8 @@ import DarkModeToggle from '../components/DarkModeToggle';
     <!-- Algorithm Explanation -->
     <AlgorithmExplainer />
 
-    <!-- Interactive App Section -->
-    <section id="app" class="container" style="min-height: 50vh; padding: 4rem 1rem;">
-      <div class="text-center">
-        <h2>Create Your Secret Santa</h2>
-        <p>Coming soon: Interactive Secret Santa app...</p>
-      </div>
-    </section>
+    <!-- Interactive Secret Santa App -->
+    <SecretSantaApp client:visible />
 
     <!-- Credits Section -->
     <section id="credits" class="container" style="padding: 4rem 1rem;">
