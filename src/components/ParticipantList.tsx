@@ -86,8 +86,10 @@ export default function ParticipantList({
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
             maxLength={50}
+            autoComplete="off"
+            aria-label="Participant name"
           />
-          <button type="submit" className="btn-add" aria-label="Add participant">
+          <button type="submit" className="btn-add" title="Add participant" aria-label="Add participant">
             +
           </button>
         </div>
