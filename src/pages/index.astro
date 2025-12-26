@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SnowEffect from '../components/SnowEffect';
+import DarkModeToggle from '../components/DarkModeToggle';
+---
+
+<Layout title="The Secretest Santa - Cryptographic Gift Exchange">
+  <!-- Background Effects -->
+  <SnowEffect client:load />
+
+  <!-- Dark Mode Toggle -->
+  <DarkModeToggle client:load />
+
+  <!-- Main Content -->
+  <main>
+    <Hero />
+
+    <!-- Placeholder sections for Days 4-5 -->
+    <section id="story" class="container" style="min-height: 50vh; padding: 4rem 1rem;">
+      <div class="text-center">
+        <h2>The Story</h2>
+        <p>Coming soon: Video and algorithm explanation...</p>
+      </div>
+    </section>
+
+    <section id="app" class="container" style="min-height: 50vh; padding: 4rem 1rem;">
+      <div class="text-center">
+        <h2>Create Your Secret Santa</h2>
+        <p>Coming soon: Interactive Secret Santa app...</p>
+      </div>
+    </section>
+
+    <section id="credits" class="container" style="padding: 4rem 1rem;">
+      <div class="text-center">
+        <h2>Credits</h2>
+        <p>
+          Inspired by <a
+            href="https://www.youtube.com/watch?v=4pG8_bWpmaE"
+            target="_blank"
+            rel="noopener noreferrer">Tom 7's Secretest Santa 2025</a
+          >
+        </p>
+        <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">
+          All data stays in your browser. Nothing is sent to any server.
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    position: relative;
+    z-index: 2;
+  }
+
+  section {
+    scroll-margin-top: 2rem;
+  }
+
+  a {
+    color: var(--color-pine-green);
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: var(--color-burgundy);
+  }
+</style>
