@@ -926,3 +926,4 @@ dist/
 This plan prioritizes **user experience** and **accessibility** while honoring the mathematical brilliance of Tom 7's work. Phase 1 makes the concept accessible to families and small groups, while laying groundwork for the fully distributed cryptographic version in Phase 2.
 
 The key is balancing **festive warmth** with **technical accuracy**—making users feel cozy while respecting the intelligence of those who understand the underlying cryptography.
+  

@@ -1,13 +1,26 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import type { ISourceOptions } from '@tsparticles/engine';
 
 export default function SnowEffect() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     });
+
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
   const options: ISourceOptions = useMemo(
@@ -24,7 +37,7 @@ export default function SnowEffect() {
         },
         move: {
           direction: 'bottom',
-          enable: true,
+          enable: !prefersReducedMotion,
           outModes: {
             default: 'out',
           },
@@ -36,7 +49,7 @@ export default function SnowEffect() {
           density: {
             enable: true,
           },
-          value: 80,
+          value: prefersReducedMotion ? 0 : 80,
         },
         opacity: {
           value: { min: 0.3, max: 0.8 },
@@ -49,14 +62,14 @@ export default function SnowEffect() {
         },
         wobble: {
           distance: 10,
-          enable: true,
+          enable: !prefersReducedMotion,
           speed: 5,
         },
       },
       detectRetina: true,
       reduceDuplicates: true,
     }),
-    []
+    [prefersReducedMotion]
   );
 
   return (

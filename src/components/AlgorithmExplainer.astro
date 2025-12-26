@@ -1,0 +1,269 @@
+---
+// Algorithm explainer component with collapsible sections
+---
+
+<section id="algorithm" class="algorithm-section">
+  <div class="container">
+    <div class="algorithm-content">
+      <h2 class="section-title fade-in">How It Works</h2>
+      <p class="section-intro fade-in" style="animation-delay: 0.2s">
+        A simplified explanation of the cryptographic Secret Santa algorithm
+      </p>
+
+      <!-- The Problem -->
+      <div class="explainer-card fade-in" style="animation-delay: 0.3s">
+        <h3>The Problem</h3>
+        <p>
+          Traditional Secret Santa has a flaw: someone (usually the organizer) knows all the
+          assignments. This means they could peek, change assignments, or accidentally reveal
+          secrets.
+        </p>
+        <p>
+          Last year, someone tried to "cheat" by finding patterns in the list. The math was perfect
+          — but humans were the weak link!
+        </p>
+        <p><strong>The goal:</strong> Create a system where no single person can control or know all assignments.</p>
+      </div>
+
+      <!-- The Solution -->
+      <div class="explainer-card fade-in" style="animation-delay: 0.4s">
+        <h3>The Magic Hat That Even the Organizer Can't Peek Into</h3>
+        <p>
+          Imagine a Secret Santa where even the person running it can't control who gets whom.
+          That's what mathematician Tom 7 figured out for a group of YouTube math nerds.
+        </p>
+
+        <details class="details-section">
+          <summary>The Core Idea</summary>
+          <div class="details-content">
+            <ul>
+              <li>Everyone creates a special "anonymous number" using math</li>
+              <li>These numbers get shuffled around in a way nobody can track</li>
+              <li>Then they're sorted by size (which is random)</li>
+              <li>Your position in the sorted list determines who your Santa is</li>
+              <li>You can send messages that only your Santa can read</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="details-section">
+          <summary>Why It Works</summary>
+          <div class="details-content">
+            <p>
+              The system uses math that's easy to calculate one way (like multiplying huge numbers)
+              but impossible to reverse (like un-mixing paint colors). Even with the world's
+              fastest computers, you couldn't cheat the system.
+            </p>
+            <p>
+              This is called "one-way functions" — the foundation of modern cryptography. It's the
+              same math that keeps your passwords and credit cards safe online.
+            </p>
+          </div>
+        </details>
+
+        <details class="details-section">
+          <summary>The Real Story</summary>
+          <div class="details-content">
+            <p>
+              In the video, Matt Parker tried to "cheat" by making the smallest possible number.
+              Someone else figured out who their Santa was by finding a typo in the list. The math
+              was perfect—humans were the weak link!
+            </p>
+            <p>
+              This shows that even the best cryptographic system needs careful implementation and
+              trust among participants.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Simplified Version -->
+      <div class="explainer-card fade-in" style="animation-delay: 0.5s">
+        <h3>Our Simplified Version</h3>
+        <p>
+          The full cryptographic version uses advanced math called "ElGamal encryption" with large
+          prime numbers. It's mathematically bulletproof but complex to set up.
+        </p>
+        <p>
+          <strong>Want to try the full cryptographic version?</strong> Visit
+          <a href="http://tom7.org/santa" target="_blank" rel="noopener noreferrer">tom7.org/santa</a>
+        </p>
+        <p>
+          <strong>Or just create a Secret Santa right now</strong> with our simplified version
+          below! It's perfect for families and small groups. ⬇️
+        </p>
+        <p class="note">
+          <em
+            >Note: Our simplified version uses browser-based randomness instead of full ElGamal
+            encryption. It's perfect for trusted groups but doesn't have the same cryptographic
+            guarantees as the full system.</em
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .algorithm-section {
+    padding: var(--spacing-section) 0;
+  }
+
+  .algorithm-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--color-burgundy);
+  }
+
+  .section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-pine-green);
+    margin-bottom: 3rem;
+    opacity: 0.9;
+  }
+
+  .explainer-card {
+    background: var(--card-background-color);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-smooth);
+  }
+
+  .explainer-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .explainer-card h3 {
+    color: var(--color-burgundy);
+    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .explainer-card p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .explainer-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .explainer-card strong {
+    color: var(--color-pine-green);
+    font-weight: 600;
+  }
+
+  .explainer-card a {
+    color: var(--color-pine-green);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .explainer-card a:hover {
+    color: var(--color-burgundy);
+  }
+
+  .note {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--card-sectionning-background-color);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  /* Details/Summary styling */
+  .details-section {
+    margin: 1.5rem 0;
+    border: 1px solid var(--color-pine-green);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: var(--card-sectionning-background-color);
+  }
+
+  .details-section summary {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-pine-green);
+    list-style: none;
+    transition: var(--transition-smooth);
+    user-select: none;
+  }
+
+  .details-section summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .details-section summary::before {
+    content: '▶';
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .details-section[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .details-section summary:hover {
+    background: rgba(1, 121, 111, 0.1);
+  }
+
+  .details-content {
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid var(--color-pine-green);
+  }
+
+  .details-content ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .details-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .details-content p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .details-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .algorithm-section {
+      padding: 2rem 0;
+    }
+
+    .explainer-card {
+      padding: 1.5rem;
+    }
+
+    .section-intro {
+      font-size: 1rem;
+    }
+
+    .details-section summary {
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    .details-content {
+      padding: 0.75rem 1rem 1rem;
+    }
+  }
+</style>
+

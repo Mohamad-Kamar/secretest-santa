@@ -1,0 +1,126 @@
+---
+// Video section component with YouTube embed
+---
+
+<section id="story" class="video-section">
+  <div class="container">
+    <div class="video-content">
+      <h2 class="section-title fade-in">The Story</h2>
+      <p class="section-intro fade-in" style="animation-delay: 0.2s">
+        Inspired by Tom 7's brilliant solution to Matt Parker's 'unhackable' Secret Santa
+      </p>
+
+      <div class="video-wrapper fade-in" style="animation-delay: 0.4s">
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/4pG8_bWpmaE"
+            title="Tom 7's Secretest Santa 2025"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="participants-intro fade-in" style="animation-delay: 0.6s">
+        <p>
+          This video features a group of YouTube math creators who came together to solve an
+          impossible problem: creating a Secret Santa where even the organizer can't peek at the
+          assignments.
+        </p>
+        <p>
+          Key participants include <strong>Katie Steckles</strong> (tradition founder),
+          <strong>Matt Parker</strong> (Stand-up Maths), <strong>Tom 7</strong> (algorithm
+          designer), <strong>Sophie</strong> (Chair), and <strong>Yan Misali</strong> (Best Hack
+          winner).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .video-section {
+    padding: var(--spacing-section) 0;
+    background: var(--card-sectionning-background-color);
+  }
+
+  .video-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--color-burgundy);
+  }
+
+  .section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-pine-green);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .video-wrapper {
+    margin: 2rem 0;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    background: #000;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .participants-intro {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--card-background-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .participants-intro p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .participants-intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  .participants-intro strong {
+    color: var(--color-burgundy);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .video-section {
+      padding: 2rem 0;
+    }
+
+    .section-intro {
+      font-size: 1rem;
+    }
+
+    .participants-intro {
+      padding: 1rem;
+    }
+  }
+</style>
+

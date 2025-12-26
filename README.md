@@ -61,10 +61,14 @@ All commands are run from the root of the project, from a terminal:
 │   ├── components/       # Astro & React components
 │   │   ├── DarkModeToggle.tsx
 │   │   ├── Hero.astro
-│   │   └── SnowEffect.tsx
+│   │   ├── SnowEffect.tsx
+│   │   ├── VideoSection.astro
+│   │   └── AlgorithmExplainer.astro
 │   ├── layouts/          # Page layouts
 │   │   └── Layout.astro
 │   ├── pages/            # Routes (index.astro)
+│   ├── scripts/          # Utility scripts
+│   │   └── scroll-animations.ts
 │   └── styles/           # Global CSS
 │       └── global.css
 ├── public/               # Static assets
@@ -81,11 +85,20 @@ All commands are run from the root of the project, from a terminal:
 - [x] Hero section with CTAs
 - [x] Responsive layout
 
-### 🚧 Next Steps (Days 4-5)
-- [ ] Embed YouTube video
-- [ ] Write simplified algorithm explanation
-- [ ] Create collapsible sections
-- [ ] Add scroll animations
+### ✅ Phase 1.2 Complete (Days 4-5)
+- [x] Embed YouTube video
+- [x] Write simplified algorithm explanation
+- [x] Create collapsible sections
+- [x] Add scroll animations with Intersection Observer
+- [x] VideoSection component with participant info
+- [x] AlgorithmExplainer component with details/summary
+
+### 🚧 Next Steps (Phase 1.3)
+- [ ] Build interactive Secret Santa app
+- [ ] Participant management (add/remove)
+- [ ] Secret Santa algorithm implementation
+- [ ] Card flip reveal animations
+- [ ] Confetti effects
 
 ## 👀 Want to learn more?
 
